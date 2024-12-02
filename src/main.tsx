@@ -11,7 +11,7 @@ interface State {
 }
 
 const store = new Store();
-export const Context = createContext<State>({
+export const StoreContext = createContext<State>({
   store
 });
 
@@ -20,10 +20,10 @@ const value = '123456';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Context.Provider value={{
+    <StoreContext.Provider value={{
       store
     }}>
       <App />      
-    </Context.Provider>
+    </StoreContext.Provider>
   </StrictMode>,
 )

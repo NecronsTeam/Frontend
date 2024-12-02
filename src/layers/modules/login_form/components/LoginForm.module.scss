@@ -1,6 +1,6 @@
 .form {
   padding: 32px 15px 42px 15px;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgba(238, 238, 238, 1);
   border-radius: 8px;
 }
 
@@ -32,7 +32,7 @@
 }
 
 .formFields {
-  margin-bottom: 19px;
+  margin-bottom: 11px;
 }
 
 .formFieldInput {
@@ -46,7 +46,7 @@
   width: 100%;
   border-radius: 65px;
   border: 1px solid rgba(7, 12, 66, 0.1);
-  background-color: rgba(7, 12, 66, 0.1);
+  background-color: rgba(242, 242, 242, 1);
 
 }
 
@@ -73,46 +73,6 @@
   background-repeat: no-repeat;
 }
 
-.info {
-  padding: 10.5px 10px 10.5px 15.5px;
-  position: relative;
-  margin-bottom: 19px;
-
-  p {
-    color: rgba(19, 19, 38, 1);
-    font-size: 13px;
-    line-height: 20.8px;
-    font-weight: 400;
-    padding-left: 28px;
-    position: relative;
-
-    &::before {
-      content: "";
-      display: block;
-      width: 18px;
-      height: 18px;
-      position: absolute;
-      background: url('../icons/info.png');
-      background-position: center;
-      background-repeat: no-repeat;
-      top: 0;
-      left: 0;
-      bottom: 0;
-    }
-  }
-
-  &::before {
-    content: "";
-    display: block;
-    width: 4px;
-    position: absolute;
-    background-color: rgba(19, 19, 38, 1);
-    top: 0;
-    left: 0;
-    bottom: 0;
-  }
-}
-
 .submitBtn {
   width: 100%;
   background-color: rgba(19, 19, 38, 1);
@@ -128,7 +88,7 @@
   margin-bottom: 19px;
 }
 
-.hasAccount {
+.notHasAccount {
   display: flex;
   justify-content: center;
 
@@ -136,9 +96,9 @@
     font-size: 13px;
     line-height: 20.8px;
     font-weight: 500;
-    color: rgba(7, 12, 66, 0.6);
-    position: relative
-    ;
+    color: rgba(7, 12, 66, 1);
+    position: relative;
+
     &::before {
       content: "";
       display: block;
@@ -154,9 +114,39 @@
     }
 
     a {
+      font-weight: 700;
       &:hover {
         text-decoration: underline;
       }
+    }
+  }
+}
+
+.forgotPassword {
+  margin-bottom: 19px;
+  display: flex;
+  justify-content: end;
+
+  p {
+    font-size: 13px;
+    line-height: 20.8px;
+    color: #131326;
+    font-weight: 700;
+    position: relative;
+    padding-left: 28px;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: url('../icons/question.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      left: 0;
+      top: 50%;
+      transform: translate(0, -50%);
     }
   }
 }

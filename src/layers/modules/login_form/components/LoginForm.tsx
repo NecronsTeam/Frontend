@@ -1,23 +1,22 @@
 import React, { useContext, useRef } from 'react';
-import styles from './RegistartionForm.module.scss';
-import { useNavigate } from 'react-router-dom';
-import ValidableInput from '../../../ui/validable_input/ValidableInput';
+import styles from './LoginForm.module.scss';
+import { Link, useNavigate } from 'react-router-dom';
 import useTextFormField, { TextField } from '../../../../hooks/useTextFormField';
 import useForm from '../../../../hooks/useForm';
-import ValidableTextInput from '../../../ui/validable_input/ValidableInput';
-import { minLength } from '../../../../validation/validators/minLength';
 import AuthService from '../../../../services/AuthService';
 import { emailValidator } from '../../../../validation/validators/email';
-import { Link } from 'react-router-dom';
+import { minLength } from '../../../../validation/validators/minLength';
+import { IRegistrationFormData } from '../../registartion_form/components/RegistrationForm';
+import ValidableTextInput from '../../../ui/validable_input/ValidableInput';
+import Store from '../../../../store/store';
 import { StoreContext } from '../../../../main';
 
-export interface IRegistrationFormData {
+export interface ILoginFormData {
   email: string,
-  password: string,
-  FIO: string
+  password: string
 }
 
-const RegistrationForm = () => {
+const LoginForm = () => {
   const email = useTextFormField("email", [emailValidator()]);
   const password = useTextFormField("password", [minLength(8)]);
   const formRef = useRef<HTMLFormElement>(null);
@@ -27,35 +26,23 @@ const RegistrationForm = () => {
   const form = useForm<TextField, string>({
     fields: [password],
     apiCall: async () => {
-      const formData = Object.fromEntries(new FormData(formRef.current ?? undefined)) as any as IRegistrationFormData;
-      const response = await AuthService.registration(formData);
+      const formData = Object.fromEntries(new FormData(formRef.current ?? undefined)) as any as ILoginFormData;
+      const response = await AuthService.login(formData);
       return response.data;
     },
     onSucces: (response) => {
       store.setToken(response)
       navigate('/');
     }
-  })
+  });
+
   return (
     <form method='POST' className={styles.form} onSubmit={form.handleFormSubmit} ref={formRef}>
       <div className={styles.formContainer}>
         <div className={styles.formTitle}>
-          Регистрация
+          Вход
         </div>
         <div className={styles.formFields}>
-          <label className={styles.formField}>
-            <div className={styles.formFieldTitle}>
-              ФИО
-            </div>
-            <div className={styles.formFieldInput}>
-              <input
-                name='FIO'
-                placeholder='ФИО'
-                className={`${styles.fio} ${styles.input}`}
-              />
-              <div className={`${styles.inputIcon} ${styles.inputIconFio}`}></div>
-            </div>
-          </label>
           <label className={styles.formField}>
             <div className={styles.formFieldTitle}>
               Email
@@ -87,25 +74,25 @@ const RegistrationForm = () => {
             </div>
           </label>
         </div>
-        <div className={styles.info}>
+        <div className={styles.forgotPassword}>
           <p>
-            Нажимая кнопку ниже вы соглашаетесь с Пользовательским соглашением
+            Забыли пароль?
           </p>
         </div>
         <button type='submit' className={styles.submitBtn}>
-          ЗАРЕГИСТРИРОВАТЬСЯ
+          Войти
         </button>
-        <div className={styles.hasAccount}>
+        <div className={styles.notHasAccount}>
           <p>
-            Уже есть аккаунт? <Link to={'/login'}>Войти</Link>
+            Нет аккаунта? <Link to={'/registration'}>Зарегистрироваться</Link>
           </p>
         </div>
       </div>
-      <div>
+      <div className={styles.sendingError}>
         {form.sendingError}
       </div>
     </form>
   );
 };
 
-export default RegistrationForm;
+export default LoginForm;
