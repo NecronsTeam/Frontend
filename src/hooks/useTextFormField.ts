@@ -21,7 +21,7 @@ function useTextFormField(
     async (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
       const val = event.target.value;
 
-      setValue(value);
+      setValue(val);
       setError(await validateValue(val, validators));
     }, [validators]
   );

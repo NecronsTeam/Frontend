@@ -1,4 +1,4 @@
-export type GetValidator<Options, Params> = (option: Options) => Validator<Params>;
+export type GetValidator<Options, Params> = (option?: Options) => Validator<Params>;
 
 export type Validator<T> = (params: T) => Promise<ValidationResult>;
 

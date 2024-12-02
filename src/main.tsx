@@ -17,7 +17,6 @@ export const Context = createContext<State>({
 
 
 const value = '123456';
-const res = await validateValue(value, [minLength(7)]);
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

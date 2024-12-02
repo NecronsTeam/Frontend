@@ -1,10 +1,162 @@
 .form {
-  padding: 32px 0 42px 0;
+  padding: 32px 15px 42px 15px;
   background-color: rgba(255, 255, 255, 1);
-  padding: 15px;
+  border-radius: 8px;
 }
 
 .formContainer {
   max-width: 451px;
   margin: 0 auto;
+}
+
+.formTitle {
+  font-size: 20px;
+  line-height: 22.3px;
+  font-weight: 500;
+  margin-bottom: 19px;
+}
+
+.formField {
+  display: block;
+
+  &:not(:last-of-type) {
+    margin-bottom: 19px;
+  }
+}
+
+.formFieldTitle {
+  margin-bottom: 8px;
+  font-size: 12px;
+  line-height: 13.38px;
+  color: rgba(7, 12, 66, 0.6);
+}
+
+.formFields {
+  margin-bottom: 19px;
+}
+
+.formFieldInput {
+  position: relative;
+}
+
+.input {
+  padding: 12px 46px 12px 46px;
+  height: 54px;
+  display: block;
+  width: 100%;
+  border-radius: 65px;
+  border: 1px solid rgba(7, 12, 66, 0.1);
+  background-color: rgba(7, 12, 66, 0.1);
+
+}
+
+.inputIconFio {
+  background: url('../icons/fio.png');
+}
+
+.inputIconEmail {
+  background: url('../icons/email.png');
+}
+
+.inputIconPassword {
+  background: url('../icons/password.png');
+}
+
+.inputIcon {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 50%;
+  left: 19px;
+  transform: translate(0, -50%);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.info {
+  padding: 10.5px 10px 10.5px 15.5px;
+  position: relative;
+  margin-bottom: 19px;
+
+  p {
+    color: rgba(19, 19, 38, 1);
+    font-size: 13px;
+    line-height: 20.8px;
+    font-weight: 400;
+    padding-left: 28px;
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 18px;
+      height: 18px;
+      position: absolute;
+      background: url('../icons/info.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      top: 0;
+      left: 0;
+      bottom: 0;
+    }
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    width: 4px;
+    position: absolute;
+    background-color: rgba(19, 19, 38, 1);
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
+}
+
+.submitBtn {
+  width: 100%;
+  background-color: rgba(19, 19, 38, 1);
+  border-radius: 66px;
+  height: 46px;
+  text-align: center;
+  padding: 15px;
+  border: none;
+  color: rgba(242, 242, 242, 1);
+  font-size: 14px;
+  line-height: 15.61px;
+  font-weight: 500;
+  margin-bottom: 19px;
+}
+
+.hasAccount {
+  display: flex;
+  justify-content: center;
+
+  p {
+    font-size: 13px;
+    line-height: 20.8px;
+    font-weight: 500;
+    color: rgba(7, 12, 66, 0.6);
+    position: relative
+    ;
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: url('../icons/info-grey.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      left: -10px;
+      top: 50%;
+      transform: translate(-100%, -50%);
+    }
+
+    a {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }

@@ -3,6 +3,7 @@ import styles from './Root.module.scss';
 import { Outlet } from 'react-router-dom';
 import './Reset.css';
 import '../assets/fonts/comfortaa/comfortaa.css';
+import './Root.css';
 
 const Root = () => {
   return (
