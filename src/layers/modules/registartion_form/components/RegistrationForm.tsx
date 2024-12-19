@@ -14,7 +14,6 @@ import { StoreContext } from '../../../../main';
 export interface IRegistrationFormData {
   email: string,
   password: string,
-  FIO: string
 }
 
 const RegistrationForm = () => {
@@ -28,10 +27,11 @@ const RegistrationForm = () => {
     fields: [password],
     apiCall: async () => {
       const formData = Object.fromEntries(new FormData(formRef.current ?? undefined)) as any as IRegistrationFormData;
-      const response = await AuthService.registration(formData);
-      return response.data;
+      const responseReg = await AuthService.registration(formData);
+      const responseLog = await AuthService.login(formData);
+      return responseLog.data;
     },
-    onSucces: (response) => {
+    onSucces: async (response) => {
       store.setToken(response)
       navigate('/');
     }
@@ -43,19 +43,6 @@ const RegistrationForm = () => {
           Регистрация
         </div>
         <div className={styles.formFields}>
-          <label className={styles.formField}>
-            <div className={styles.formFieldTitle}>
-              ФИО
-            </div>
-            <div className={styles.formFieldInput}>
-              <input
-                name='FIO'
-                placeholder='ФИО'
-                className={`${styles.fio} ${styles.input}`}
-              />
-              <div className={`${styles.inputIcon} ${styles.inputIconFio}`}></div>
-            </div>
-          </label>
           <label className={styles.formField}>
             <div className={styles.formFieldTitle}>
               Email

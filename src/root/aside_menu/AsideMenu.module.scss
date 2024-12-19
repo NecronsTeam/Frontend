@@ -1,0 +1,45 @@
+.menu {
+
+}
+
+.navLinkContainer {
+
+  a.active {
+    background-color: rgba(238, 238, 238, 1);
+  }
+
+  a {
+    &:hover {
+      background-color: rgb(199, 196, 196);
+    }
+
+    display: block;
+    padding: 16px 0px;
+    display: flex;
+    padding-left: 43px;
+    align-items: center;
+
+    .navLinkIcon {
+      width: 18px;
+      height: 18px;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin-right: 14px;
+    }
+
+    .navLinkText {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 15.61px;
+      color: rgba(34, 32, 45, 1);
+    }
+  }
+}
+
+.activity {
+  background-image: url('./images/leaves.png');
+}
+
+.profile {
+  background-image: url('./images/target.png');
+}

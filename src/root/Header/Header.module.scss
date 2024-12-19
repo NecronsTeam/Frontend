@@ -1,0 +1,49 @@
+.header {
+  padding: 20px 0;
+}
+
+.headerContainer {
+  padding: 0 40px 0 75px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navInfo {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+  color: rgba(79, 79, 79, 1);
+}
+
+.btnPanel {
+  display: flex;
+  align-items: center;
+}
+
+.settings, .notifications {
+  button {
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+  }
+}
+
+.settings {
+  margin-right: 24px;
+}
+
+.avatar {
+  margin-left: 11px;
+
+  a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+  }
+}

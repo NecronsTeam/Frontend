@@ -4,6 +4,7 @@ import IndexPage from "./layers/pages/index_page/IndexPage";
 import RegistrationPage from "./layers/pages/registration_page/components/page/RegistrationPage";
 import { RegistartionFormAction } from "./layers/modules/registartion_form/actions/RegistrationFormAction";
 import LoginPage from "./layers/pages/login_page/components/LoginPage";
+import ProfileViewPage from "./layers/pages/profile_view_page/components/page/ProfileViewPage";
 
 const router = createBrowserRouter([{
   path: '/',
@@ -20,6 +21,14 @@ const router = createBrowserRouter([{
     {
       path: 'login',
       element: <LoginPage/>
+    }, 
+    {
+      path: 'profile_view',
+      element: <ProfileViewPage/>
+    },
+    {
+      path: 'activities',
+      element: <ProfileViewPage/>
     }
   ]
 }]);

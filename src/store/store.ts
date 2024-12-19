@@ -8,10 +8,7 @@ export default class Store {
 
   constructor() {
     makeAutoObservable(this);
-  }
-
-  setAuth(isAuth: boolean) {
-    this.isAuth = isAuth;
+    this.isAuth = !(localStorage.getItem('token') == null);
   }
 
   setUser(user: IUser) {
@@ -19,6 +16,7 @@ export default class Store {
   }
 
   async setToken(token: string) {
+    this.isAuth = true;
     localStorage.setItem('token', token)
   }
 }
