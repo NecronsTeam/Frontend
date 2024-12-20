@@ -1,0 +1,10 @@
+.header {
+  background: linear-gradient(90deg, rgb(19, 19, 38) 0%, rgb(31, 34, 137) 15%, rgb(252, 176, 69) 72%, rgb(136, 35, 103) 86%);
+  height: 244px;
+}
+
+.formContainer {
+  flex-grow: 1;
+  padding-left: 241px;
+  background-color: rgb(238, 238, 238);
+}/*# sourceMappingURL=ProfileEditPage.module.css.map */

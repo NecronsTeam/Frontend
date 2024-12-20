@@ -7,8 +7,9 @@ import './Root.css';
 import { StoreContext } from '../main';
 import Header from './Header/Header';
 import AsideMenu from './aside_menu/AsideMenu';
+import { observer } from 'mobx-react-lite';
 
-const Root = () => {
+const Root = observer(() => {
   const { store } = useContext(StoreContext);
   const isAuth = store.isAuth;
   const asideMenuContainerRef = useRef<HTMLDivElement>(null);
@@ -52,6 +53,6 @@ const Root = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Root;

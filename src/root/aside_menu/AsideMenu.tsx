@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from './AsideMenu.module.scss';
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { StoreContext } from '../../main';
 
 const AsideMenu = () => {
+  const { store } = useContext(StoreContext);
 
   return (
     <div className={styles.menu}>
@@ -19,7 +21,7 @@ const AsideMenu = () => {
           </NavLink>
         </div>
         <div className={styles.navLinkContainer}>
-          <NavLink to={'/profile_view'} className={({ isActive }) =>
+          <NavLink to={`/profile/${store.user.id}`} className={({ isActive }) =>
             isActive ? styles.active : ""
           }>
             <div className={`${styles.navLinkIcon} ${styles.profile}`}></div>

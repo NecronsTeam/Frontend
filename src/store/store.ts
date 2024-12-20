@@ -1,14 +1,21 @@
 import { makeAutoObservable } from "mobx";
-import { IUser } from "../models/IUser";
 import AuthService from "../services/AuthService";
+import { jwtDecode } from "jwt-decode";
+import { UserRole } from "../types/UserRole";
+import { IUser } from "../types/IUser";
 
-export default class Store {
+export class Store {
   user = {} as IUser;
   isAuth = false;
 
   constructor() {
     makeAutoObservable(this);
-    this.isAuth = !(localStorage.getItem('token') == null);
+    const token = localStorage.getItem('token')
+    this.isAuth = !(token == null);
+    this.user = {
+      id: '1',
+      role: UserRole.Supervisor
+    }
   }
 
   setUser(user: IUser) {
@@ -17,6 +24,12 @@ export default class Store {
 
   async setToken(token: string) {
     this.isAuth = true;
-    localStorage.setItem('token', token)
+    localStorage.setItem('token', token);
+    this.user = {
+      id: '1',
+      role: UserRole.Supervisor
+    }
   }
 }
+
+export const store = new Store();

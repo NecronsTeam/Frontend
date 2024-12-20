@@ -1,5 +1,4 @@
-export interface IProfile {
-  id: number
+export interface IProfileForUpdate {
   firstName: string
   middleName: string
   lastName: string

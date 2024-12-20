@@ -1,0 +1,23 @@
+.inputContainer {
+  position: relative;
+}
+
+.error {
+  color: rgb(205, 64, 64);
+  font-size: 14px;
+  margin-top: 7px;
+  padding-left: 15px;
+  position: relative;
+}
+.error::before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 7px;
+  height: 7px;
+  background-color: rgb(205, 64, 64);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+}/*# sourceMappingURL=ValidableInput.module.css.map */

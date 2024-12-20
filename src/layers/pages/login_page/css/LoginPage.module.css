@@ -1,0 +1,22 @@
+.page {
+  background: rgb(19, 19, 38);
+  background: linear-gradient(90deg, rgb(19, 19, 38) 0%, rgb(31, 34, 137) 15%, rgb(252, 176, 69) 50%, rgb(136, 35, 103) 86%);
+  padding: 0 15px;
+}
+
+.pageContainer {
+  max-width: 707px;
+  margin: 0 auto;
+  height: 100vh;
+  position: relative;
+  padding: 0 15px;
+}
+
+.formWrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 499px;
+  margin: auto;
+}/*# sourceMappingURL=LoginPage.module.css.map */

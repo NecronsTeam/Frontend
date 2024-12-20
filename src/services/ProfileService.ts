@@ -1,17 +1,27 @@
 import { Axios, AxiosResponse } from "axios";
 import { IProfile } from "../types/Profile";
 import $api from "../http";
+import generateAxiosResponse from "../utils/generateAxiosResponse";
+import { IProfileForUpdate } from "../types/IProfileForUpdate";
 
 export default class ProfileService {
-  static async getMy():Promise<AxiosResponse<IProfile>> {
-    return await $api.get('');
+  static async getByUserId(id: string): Promise<AxiosResponse<IProfile>> {
+    const response = generateAxiosResponse({
+      id: 1,
+      firstName: 'Дмитрий',
+      middleName: 'Попов',
+      lastName: 'Александрович',
+      phoneNumber: '+7996132114',
+      email: 'wasd@mail.ru',
+      telegramLink: '@cursed12'
+    } as IProfile);
+
+    return response;
   }
 
-  static async get(id: number): Promise<AxiosResponse<IProfile>> {
-    return await $api.get('');
-  }
+  static async updateMy(profile: IProfileForUpdate): Promise<AxiosResponse> {
+    const response = generateAxiosResponse<{}>({});
 
-  static async updateMy(profile: IProfile): Promise<AxiosResponse> {
-    return await $api.put('', profile);
+    return response;
   }
 }

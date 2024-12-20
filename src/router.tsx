@@ -5,6 +5,11 @@ import RegistrationPage from "./layers/pages/registration_page/components/page/R
 import { RegistartionFormAction } from "./layers/modules/registartion_form/actions/RegistrationFormAction";
 import LoginPage from "./layers/pages/login_page/components/LoginPage";
 import ProfileViewPage from "./layers/pages/profile_view_page/components/page/ProfileViewPage";
+import { profileViewLoader } from "./layers/pages/profile_view_page/loaders/profileViewLoader";
+import ProfileEditPage from "./layers/pages/profile_edit_page/components/ProfileEditPage";
+import { profileEditLoader } from "./layers/pages/profile_edit_page/loaders/profileEdtiLoader";
+import { store } from "./store/store";
+import { toJS } from "mobx";
 
 const router = createBrowserRouter([{
   path: '/',
@@ -23,12 +28,18 @@ const router = createBrowserRouter([{
       element: <LoginPage/>
     }, 
     {
-      path: 'profile_view',
-      element: <ProfileViewPage/>
+      path: 'profile/:userId',
+      element: <ProfileViewPage/>,
+      loader: profileViewLoader
+    },
+    {
+      path: 'profile/edit/:userId',
+      element: <ProfileEditPage/>,
+      loader: (args) => profileEditLoader(args, toJS(store))
     },
     {
       path: 'activities',
-      element: <ProfileViewPage/>
+      element: <ProfileViewPage/>,
     }
   ]
 }]);
