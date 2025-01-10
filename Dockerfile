@@ -16,6 +16,6 @@ RUN npm install
 RUN ls /usr/src/app
 RUN ls /usr/src/app/public
 
-EXPOSE 3000
+EXPOSE 5173
 
-CMD npm run build
+CMD npm run dev
