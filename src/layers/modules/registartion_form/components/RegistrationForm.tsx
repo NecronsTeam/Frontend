@@ -10,10 +10,13 @@ import AuthService from '../../../../services/AuthService';
 import { emailValidator } from '../../../../validation/validators/email';
 import { Link } from 'react-router-dom';
 import { StoreContext } from '../../../../main';
+import RadioButton from '../../../ui/radio_button/RadioButton';
+import { UserRole } from '../../../../types/UserRole';
 
 export interface IRegistrationFormData {
   email: string,
   password: string,
+  role: UserRole
 }
 
 const RegistrationForm = () => {
@@ -23,10 +26,10 @@ const RegistrationForm = () => {
   const navigate = useNavigate();
   const { store } = useContext(StoreContext);
 
-  const form = useForm<TextField, string>({
+  const form = useForm<TextField, string, IRegistrationFormData>({
     fields: [password],
-    apiCall: async () => {
-      const formData = Object.fromEntries(new FormData(formRef.current ?? undefined)) as any as IRegistrationFormData;
+    apiCall: async (formData) => {
+      formData.role = +formData.role;
       const responseReg = await AuthService.registration(formData);
       const responseLog = await AuthService.login(formData);
       return responseLog.data;
@@ -73,6 +76,29 @@ const RegistrationForm = () => {
               </ValidableTextInput>
             </div>
           </label>
+          <div className={`${styles.formField}`}>
+            <div className={styles.radioGroupTitle}>
+              Тип пользователя
+            </div>
+            <div className={styles.radioGroup}>
+              <div className={styles.roleInput}>
+                <label>
+                  <input type='radio' name='role' value={UserRole.Student} checked/>
+                  <div>
+                    Студент
+                  </div>
+                </label>
+              </div>
+              <div className={styles.roleInput}>
+                <label>
+                  <input type='radio' name='role' value={UserRole.Manager}/>
+                  <div>
+                    Менеджер
+                  </div>
+                </label>
+              </div>              
+            </div>
+          </div>
         </div>
         <div className={styles.info}>
           <p>

@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@gravity-ui/date-components": "^2.11.0",
     "@types/axios": "^0.14.4",
     "@types/react-router-dom": "^5.3.3",
     "axios": "^1.7.7",
@@ -17,11 +18,15 @@
     "mobx": "^6.13.5",
     "mobx-react-lite": "^4.0.7",
     "react": "^18.3.1",
+    "react-datepicker": "^7.6.0",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
+    "@gravity-ui/components": "^3.13.1",
+    "@gravity-ui/date-utils": "^2.5.6",
+    "@gravity-ui/uikit": "^6.38.0",
     "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react-swc": "^3.5.0",

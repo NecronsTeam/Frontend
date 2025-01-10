@@ -1,0 +1,23 @@
+.page {
+  background-color: rgb(238, 238, 238);
+  padding-top: 15px;
+}
+
+.pageContainer {
+  padding: 15px 0;
+  margin: 0 auto;
+  flex-shrink: 0;
+  flex-basis: 740px;
+  height: 100%;
+  flex-grow: 1;
+}
+
+.header {
+  margin-bottom: 15px;
+}
+.header .createActivityBtn a {
+  background-color: rgb(19, 19, 38);
+  color: rgb(242, 242, 242);
+  border-radius: 20px;
+  padding: 10px 30px;
+}/*# sourceMappingURL=ActivitiesListPage.module.css.map */

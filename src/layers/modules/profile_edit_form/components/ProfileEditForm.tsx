@@ -21,11 +21,10 @@ const ProfileEditForm:FC<IProfileEditFormProps> = ({profile}) => {
   const telegramLink = useTextFormField('telegramLink', [telegramValidator()]);
   const [isSuccesSubmit, setIsSuccesSubmit] = useState<boolean>(false);
   const formRef = useRef<HTMLFormElement>(null);
-  const form = useForm<TextField, AxiosResponse>({
+  const form = useForm<TextField, AxiosResponse, IProfileForUpdate>({
     fields: [email, phoneNumber, telegramLink],
-    apiCall: async () => {
-      const formData = Object.fromEntries(new FormData(formRef.current ?? undefined)) as any as IProfileForUpdate;
-      const response = await ProfileService.updateMy(formData);
+    apiCall: async (IProfileForUpdate) => {
+      const response = await ProfileService.updateMy(IProfileForUpdate);
 
       return response;
     },

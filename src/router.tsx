@@ -10,6 +10,9 @@ import ProfileEditPage from "./layers/pages/profile_edit_page/components/Profile
 import { profileEditLoader } from "./layers/pages/profile_edit_page/loaders/profileEdtiLoader";
 import { store } from "./store/store";
 import { toJS } from "mobx";
+import ActivitiesListPage from "./layers/pages/activities_list_page/components/ActivitiesListPage";
+import { activitiesListLoader } from "./layers/pages/activities_list_page/loaders/activitiesListLoader";
+import ActivityCreatePage from "./layers/pages/activity_create_page/components/ActivityCreatePage";
 
 const router = createBrowserRouter([{
   path: '/',
@@ -39,7 +42,12 @@ const router = createBrowserRouter([{
     },
     {
       path: 'activities',
-      element: <ProfileViewPage/>,
+      element: <ActivitiesListPage/>,
+      loader: activitiesListLoader
+    }, 
+    {
+      path: 'activities/create',
+      element: <ActivityCreatePage/>,
     }
   ]
 }]);

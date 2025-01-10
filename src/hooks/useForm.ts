@@ -2,9 +2,9 @@ import { FormEventHandler, useState } from "react";
 import { DefaultField } from "../types/FormFields";
 import { Axios, AxiosError } from "axios";
 
-function useForm<Field extends DefaultField, Response>(props: {
+function useForm<Field extends DefaultField, Response, FormModel>(props: {
   fields: Field[];
-  apiCall: () => Promise<Response>,
+  apiCall: (formData: FormModel) => Promise<Response>,
   onSucces: (response: Response) => void,
   onFailure?: (error: string) => void
 }): {
@@ -28,9 +28,11 @@ function useForm<Field extends DefaultField, Response>(props: {
       setSendingError(null);
 
       try {
-        const response = await apiCall();
+        const formData = Object.fromEntries(new FormData((event.target) as HTMLFormElement)) as FormModel;
+        const response = await apiCall(formData);
         onSucces?.(response);
-      } catch (err) {
+      } catch (err: any) {
+        console.log(err.message)
         const message = err instanceof AxiosError ? err.response?.data
           : err instanceof Error ? err.message
           : "Что-то пошло не так, попробуйте ещё раз";

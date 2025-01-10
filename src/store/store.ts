@@ -14,7 +14,7 @@ export class Store {
     this.isAuth = !(token == null);
     this.user = {
       id: '1',
-      role: UserRole.Supervisor
+      role: UserRole.Manager
     }
   }
 
@@ -27,7 +27,7 @@ export class Store {
     localStorage.setItem('token', token);
     this.user = {
       id: '1',
-      role: UserRole.Supervisor
+      role: UserRole.Manager
     }
   }
 }

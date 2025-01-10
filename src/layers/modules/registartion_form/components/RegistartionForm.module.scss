@@ -19,7 +19,7 @@
 .formField {
   display: block;
 
-  &:not(:last-of-type) {
+  &:not(:last-child) {
     margin-bottom: 19px;
   }
 }
@@ -166,4 +166,22 @@
   max-height: 50px;
   overflow: hidden;
   color: rgb(228, 97, 97);
+}
+
+.radioGroup {
+  display: flex;
+  gap: 30px;
+
+  label {
+    display: flex;
+  }
+
+  .roleInput input{
+    margin-right: 5px;
+  }
+}
+
+.radioGroupTitle {
+  margin-bottom: 10px;
+  font-weight: 600;
 }
