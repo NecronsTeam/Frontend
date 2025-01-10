@@ -1,6 +1,4 @@
 import { makeAutoObservable } from "mobx";
-import AuthService from "../services/AuthService";
-import { jwtDecode } from "jwt-decode";
 import { UserRole } from "../types/UserRole";
 import { IUser } from "../types/IUser";
 

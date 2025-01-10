@@ -1,5 +1,3 @@
-import { ICompetency } from "./ICompetency"
-
 export interface IActivityFormData {
   name: string,
   description: string,

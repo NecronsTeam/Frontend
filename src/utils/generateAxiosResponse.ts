@@ -1,4 +1,4 @@
-import { AxiosHeaders, AxiosResponse, InternalAxiosRequestConfig } from "axios";
+import { AxiosResponse, InternalAxiosRequestConfig } from "axios";
 
 export default function generateAxiosResponse<T>(data: T) {
   const response: AxiosResponse<T> = {
