@@ -35,6 +35,9 @@ const ActivityCreatePage = () => {
   return (
     <div className={styles.page}>
       <div className={styles.pageContainer}>
+        <h1 className={styles.title}>
+          Новое мепроприятие
+        </h1>
         <form method='POST' className={styles.createForm} onSubmit={createForm.handleFormSubmit}>
           <div className={styles.formContainer}>
             <label className={styles.formField}>
@@ -49,7 +52,7 @@ const ActivityCreatePage = () => {
               <div className={styles.formFieldTitle}>
                 Описание
               </div>
-              <div className={styles.formFieldInput}>
+              <div className={`${styles.formFieldInput} ${styles.formFieldInputDescription}`}>
                 <textarea name='description' placeholder='описание' />
               </div>
             </label>
@@ -61,34 +64,23 @@ const ActivityCreatePage = () => {
                 <input type='text' name='orgChatLink' placeholder='https://example.com' />
               </div>
             </label>
-            <label className={styles.formField}>
+            <div className={styles.formField}>
               <div className={styles.formFieldTitle}>
                 Старт мепроприятия
               </div>
               <div className={styles.formFieldInput}>
                 <DatePicker selected={dateFrom} onChange={(date) => setDateFrom(date ?? new Date())} showTimeSelect />
               </div>
-            </label>
-            <label className={styles.formField}>
+            </div>
+            <div className={styles.formField}>
               <div className={styles.formFieldTitle}>
                 Конец мепроприятия
               </div>
               <div className={styles.formFieldInput}>
                 <DatePicker selected={dateTo} onChange={(date) => setDateTo(date ?? new Date())} showTimeSelect />
               </div>
-            </label>
-            <div className={styles.formField}>
-              <div className={styles.selectedCompetencies}>
-                <ul className={styles.selectedCompetenciesList}>
-                  {
-                    competencies.map(competency => (
-                      <li className={styles.competenciesListItem} key={competency.id}>
-                        <CompetencyCard name={competency.name} />
-                      </li>
-                    ))
-                  }
-                </ul>
-              </div>
+            </div>
+            <div className={`${styles.fieldCompetency}`}>
               <CompetenciesPicker competencies={competencies} onChange={(competencies) => setCompetencies(competencies)} />
             </div>
           </div>

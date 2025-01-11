@@ -3,3 +3,58 @@
   flex-grow: 1;
 }
 
+.pageContainer {
+  max-width: 1000px;
+  background-color: white;
+  margin-top: 30px;
+  margin-left: 100px;
+  padding: 15px;
+  box-sizing: content-box;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+
+.fieldCompetency {
+  width: 500px;
+}
+
+.title {
+  font-size: 30px;
+  text-align: center;
+}
+
+.formField {
+  display: block;
+  max-width: 400px;
+
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
+
+  .formFieldTitle {
+    margin-bottom: 5px;
+  }
+
+  input {
+    height: 44px;
+    padding: 17px;
+    border: 1px solid rgba(7, 12, 66, 0.1);
+    border-radius: 10px;
+    width: 100%;
+  }
+}
+
+.formFieldInputDescription {
+
+  textarea {
+    max-width: 400px;
+    max-height: 100px;
+    min-width: 400px;
+    min-height: 100px;
+    padding: 5px;
+    border: 1px solid rgba(7, 12, 66, 0.1);
+  }
+}
