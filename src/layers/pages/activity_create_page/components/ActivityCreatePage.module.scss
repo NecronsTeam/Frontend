@@ -18,7 +18,13 @@
 
 
 .fieldCompetency {
+  margin-top: 15px;
   width: 500px;
+}
+
+.fieldCompetencyTitle {
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
 .title {
@@ -63,4 +69,18 @@
   display: flex;
   align-items: end;
   gap: 20px;
+}
+
+.footer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: end;
+}
+
+.submitBtn {
+  padding: 10px;
+  border: none;
+  color: white;
+  background-color: rgba(19, 19, 38, 1);
+  border-radius: 10px;
 }

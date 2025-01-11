@@ -170,7 +170,7 @@
 
 .radioGroup {
   display: flex;
-  gap: 30px;
+  gap: 20px;
 
   label {
     display: flex;
@@ -184,4 +184,8 @@
 .radioGroupTitle {
   margin-bottom: 10px;
   font-weight: 600;
+}
+
+.userRoleText {
+  margin-left: 7px;
 }

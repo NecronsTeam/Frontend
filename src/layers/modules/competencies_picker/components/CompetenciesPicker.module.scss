@@ -19,13 +19,21 @@
   color: rgb(42, 49, 55);
   font-weight: 600;
   display: flex;
+  align-items: center;
   gap: 5px;
   padding: 7px 11px;
   border-radius: 5px;
 }
 
 .deleteSelectedCompetency {
-  color: red;
+  font-size: 25px;
+  font-weight: 200;
+
+  &:hover {
+    color: red;
+    cursor: pointer;
+  }
+
 }
 
 .searchCompetencies {

@@ -28,6 +28,7 @@ const CompetenciesPicker: FC<ISelectActivitiesProps> = ({ competencies, onChange
     if (!closestResult || closestResult.dataset.isSelect == "true") return;
     closestResult.dataset.isSelect = true;
     closestResult.classList.add(styles.selected);
+    if (competencies.find(c => c.id == closestResult.dataset.id)) return;
     const selectedCompetency = filteredComptencies.filter(fC => fC.id == closestResult.dataset.id)[0];
     onChange([...competencies, selectedCompetency]);
   }
@@ -58,7 +59,7 @@ const CompetenciesPicker: FC<ISelectActivitiesProps> = ({ competencies, onChange
                     }
                   </div>
                   <div className={styles.deleteSelectedCompetency}>
-                    X
+                    &#215;
                   </div>
                 </li>
               ))
@@ -98,7 +99,6 @@ const CompetenciesPicker: FC<ISelectActivitiesProps> = ({ competencies, onChange
               }
             </ul>
           </div>
-
         </div>
       </div>
     </div>

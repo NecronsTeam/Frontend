@@ -1,4 +1,4 @@
 export enum UserRole {
-  Student = 2,
-  Manager = 4
+  Student = 4,
+  Manager = 2
 }

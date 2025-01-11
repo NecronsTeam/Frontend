@@ -39,7 +39,7 @@ const ActivityCreatePage = () => {
         <h1 className={styles.title}>
           Новое мепроприятие
         </h1>
-        <form method='POST' className={styles.createForm} onSubmit={createForm.handleFormSubmit}>
+        <form method='POST' className={styles.createForm} onSubmit={createForm.handleFormSubmit} id='1234'>
           <div className={styles.formContainer}>
             <label className={styles.formField}>
               <div className={styles.formFieldTitle}>
@@ -82,17 +82,22 @@ const ActivityCreatePage = () => {
               </div>
             </div>
           </div>
-          <button type='submit'>
-            Создать
-          </button>
         </form>
         <div className={styles.competency}>
           <div className={`${styles.fieldCompetency}`}>
+            <div className={styles.fieldCompetencyTitle}>
+              Компентенции
+            </div>
             <CompetenciesPicker competencies={competencies} onChange={(competencies) => setCompetencies(competencies)} />
           </div>
           <div className={styles.createCompetencyForm}>
             <CreateCompetencyForm onSuccesCreate={(competency) => setCompetencies([...competencies, competency])} />
           </div>          
+        </div>
+        <div className={styles.footer}>
+          <button type='submit' className={styles.submitBtn} form='1234'>
+            Создать
+          </button>
         </div>
       </div>
     </div>

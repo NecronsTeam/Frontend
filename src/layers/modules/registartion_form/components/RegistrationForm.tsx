@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import styles from './RegistartionForm.module.scss';
 import { useNavigate } from 'react-router-dom';
 import ValidableInput from '../../../ui/validable_input/ValidableInput';
@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 import { StoreContext } from '../../../../main';
 import RadioButton from '../../../ui/radio_button/RadioButton';
 import { UserRole } from '../../../../types/UserRole';
+import { RadioGroup, Radio } from 'react-radio-group'
 
 export interface IRegistrationFormData {
   email: string,
@@ -25,11 +26,12 @@ const RegistrationForm = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const navigate = useNavigate();
   const { store } = useContext(StoreContext);
-
+  const [role, setRole] = useState<UserRole>(UserRole.Student);
   const form = useForm<TextField, string, IRegistrationFormData>({
     fields: [password],
     apiCall: async (formData) => {
       formData.role = +formData.role;
+      console.log(formData)
       const responseReg = await AuthService.registration(formData);
       const responseLog = await AuthService.login(formData);
       return responseLog.data;
@@ -39,6 +41,7 @@ const RegistrationForm = () => {
       navigate('/');
     }
   })
+
   return (
     <form method='POST' className={styles.form} onSubmit={form.handleFormSubmit} ref={formRef}>
       <div className={styles.formContainer}>
@@ -80,24 +83,20 @@ const RegistrationForm = () => {
             <div className={styles.radioGroupTitle}>
               Тип пользователя
             </div>
-            <div className={styles.radioGroup}>
-              <div className={styles.roleInput}>
-                <label>
-                  <input type='radio' name='role' value={UserRole.Student} checked/>
-                  <div>
-                    Студент
-                  </div>
-                </label>
-              </div>
-              <div className={styles.roleInput}>
-                <label>
-                  <input type='radio' name='role' value={UserRole.Manager}/>
-                  <div>
-                    Менеджер
-                  </div>
-                </label>
-              </div>              
-            </div>
+            <RadioGroup name='role' selectedValue={role} onChange={(value) => setRole(value)} className={styles.radioGroup}>
+              <label>
+                <Radio value={UserRole.Student} />
+                <div className={styles.userRoleText}>
+                  Студент
+                </div>
+              </label>
+              <label>
+                <Radio value={UserRole.Manager} />
+                <div className={styles.userRoleText}>
+                  Менеджер
+                </div>
+              </label>
+            </RadioGroup>
           </div>
         </div>
         <div className={styles.info}>

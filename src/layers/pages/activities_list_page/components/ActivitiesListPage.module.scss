@@ -8,45 +8,59 @@
   margin: 0 auto;
   flex-shrink: 0;
   flex-basis: 740px;
+  width: 1100px;
   height: 100%;
   flex-grow: 1;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 0px 15px 0px rgba(34, 60, 80, 0.2);
+  border-radius: 15px;
 }
 
 .header {
-  .createActivityBtn {
-    a {
-      background-color: rgba(19, 19, 38, 1);
-      color: rgba(242, 242, 242, 1);
-      border-radius: 20px;
-      padding: 10px 30px;
-    }  
-  }
-
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
-.item {
-  flex: 0 0 48%;
-  height: 360px;
-  padding: 13px 20px 25px 20px;
-  border-radius: 10px;
-  background-color: white;
-  font-size: 18px;
+.activities {
+  padding: 20px;
 }
 
-.list {
-  justify-content: space-between;
-  width: 1000px;
+.activitiesList {
   display: flex;
   flex-wrap: wrap;
-  row-gap: 20px;
+  column-gap: 2%;
+  row-gap: 25px;
+
+  .activitiesListItem {
+    flex-basis: 23.5%;
+    width: 23.5%;
+    flex-grow: 0;
+    flex-shrink: 1;
+  }
 }
 
-.cover {
-  margin-bottom: 10px;
+.createActivityBtn {
+  padding-right: 25px;
+  display: flex;
+  justify-content: end;
 
-  img {
-    height: auto;
-    width: 100%;
+  a {
+    background-color: rgba(19, 19, 38, 1);
+    border-radius: 15px;
+    color: white;    
+    padding: 10px 15px;
   }
+}
+
+.title {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 25px;
 }
