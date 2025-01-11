@@ -33,7 +33,7 @@ function useForm<Field extends DefaultField, Response, FormModel>(props: {
         onSucces?.(response);
       } catch (err: any) {
         console.log(err.message)
-        const message = err instanceof AxiosError ? err.response?.data
+        const message = err instanceof AxiosError ? err.response?.data?.error
           : err instanceof Error ? err.message
           : "Что-то пошло не так, попробуйте ещё раз";
 

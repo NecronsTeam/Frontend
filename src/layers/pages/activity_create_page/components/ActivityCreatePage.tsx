@@ -12,6 +12,7 @@ import DatePicker from 'react-datepicker';
 import { Competency, ICompetency } from '../../../../types/ICompetency';
 import CompetenciesPicker from '../../../modules/competencies_picker/components/CompetenciesPicker';
 import CompetencyCard from '../../../components/competency_card/CompetencyCard';
+import CreateCompetencyForm from '../../../modules/create_competency_form/components/CreateCompetencyForm';
 
 const ActivityCreatePage = () => {
   const createForm = useForm<TextField, AxiosResponse<IActivity>, IActivityFormData>({
@@ -80,14 +81,19 @@ const ActivityCreatePage = () => {
                 <DatePicker selected={dateTo} onChange={(date) => setDateTo(date ?? new Date())} showTimeSelect />
               </div>
             </div>
-            <div className={`${styles.fieldCompetency}`}>
-              <CompetenciesPicker competencies={competencies} onChange={(competencies) => setCompetencies(competencies)} />
-            </div>
           </div>
           <button type='submit'>
             Создать
           </button>
         </form>
+        <div className={styles.competency}>
+          <div className={`${styles.fieldCompetency}`}>
+            <CompetenciesPicker competencies={competencies} onChange={(competencies) => setCompetencies(competencies)} />
+          </div>
+          <div className={styles.createCompetencyForm}>
+            <CreateCompetencyForm onSuccesCreate={(competency) => setCompetencies([...competencies, competency])} />
+          </div>          
+        </div>
       </div>
     </div>
   );
