@@ -22,4 +22,8 @@ export class ActivityService {
       params: params
     })
   }
+
+  static async getById(id: number): Promise<AxiosResponse<IActivity>> {
+    return await $api.get(`activity/${id}`);
+  }
 }

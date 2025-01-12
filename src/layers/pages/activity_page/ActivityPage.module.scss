@@ -1,0 +1,18 @@
+.page {
+  flex-grow: 1;
+  background-color: rgb(238, 238, 238);
+  display: flex;
+  flex-direction: column;
+}
+
+.pageContainer {
+  max-width: 1000px;
+  margin-top: 50px;
+  margin-left: 50px;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+  border-radius: 15px;
+  padding: 20px;
+}

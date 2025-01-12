@@ -9,5 +9,5 @@ export interface IActivity {
   dateTo: string
   creatorUserId: number
   previewPhotoId: number,
-  competencies: ICompetency[]
+  competences: ICompetency[]
 }

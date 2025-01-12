@@ -13,6 +13,8 @@ import { toJS } from "mobx";
 import ActivitiesListPage from "./layers/pages/activities_list_page/components/ActivitiesListPage";
 import { activitiesListLoader } from "./layers/pages/activities_list_page/loaders/activitiesListLoader";
 import ActivityCreatePage from "./layers/pages/activity_create_page/components/ActivityCreatePage";
+import Activity from "./layers/modules/activity/Activity";
+import ActivityPage from "./layers/pages/activity_page/ActivityPage";
 
 const router = createBrowserRouter([{
   path: '/',
@@ -45,6 +47,10 @@ const router = createBrowserRouter([{
       element: <ActivitiesListPage/>,
       loader: activitiesListLoader
     }, 
+    {
+      path: 'activities/:activityId',
+      element: <ActivityPage/>
+    },
     {
       path: 'activities/create',
       element: <ActivityCreatePage/>,

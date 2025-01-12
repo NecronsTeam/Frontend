@@ -20,7 +20,7 @@ const ActivityCard: FC<IActivityCardProps> = ({ activity }) => {
           {activity.name}
         </div>
         <div className={styles.link}>
-          <Link to={''}>
+          <Link to={`/activities/${activity.id}`}>
             <div className={styles.linkIcon}>
             </div>
             <div className={styles.linkText}>
